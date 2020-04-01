@@ -224,7 +224,7 @@ a:focus {
 
 .o-row--lg {
     position: relative;
-    padding: 24px 24px 0;
+    padding: 48px 24px 24px;
     display: flow-root;
 }
 
@@ -262,7 +262,7 @@ a:focus {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 70.5em; /* 70.5 * 16px = 1128px*/
+    max-width: 56.4em; /* 56.4 * 20px = 1128px*/
     /*90em; /* 90 * 16px = 1440px */
 }
 
@@ -306,8 +306,6 @@ a:focus {
 */
 
 .o-layout {
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
 }
@@ -535,7 +533,7 @@ a:focus {
         width: auto;
     }
 
-    .c-footer__logo .c-logo {
+    .c-footer__logo + .c-logo {
         order: -1;
     }
 
@@ -735,9 +733,67 @@ a:focus {
     }
 }
 
+/*
+    Component: CTA link
+    ---
+    Small cta link with custom animation
+*/
 
+.c-link-cta {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    padding: 4px 0;
+    transition: color .175s ease-in;
+}
 
+.c-link-cta,
+.c-link-cta:visited,
+.c-link-cta:active {
+    color: #7373F5;
+}
 
+.c-link-cta::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #7373F5;
+    transform: scalex(.5);
+    transform-origin: left;
+    transition-property: transform, background-color;
+    transition-duration: .175s;
+    transition-timing-function: ease;
+}
+
+.c-link-cta:hover {
+    color: #3E3EA8;
+}
+
+.c-link-cta:hover::after {
+    transform: scalex(1);
+    background-color: #3E3EA8;
+}
+
+/* inversed */
+
+.c-link-cta--inverse,
+.c-link-cta--inverse:visited,
+.c-link-cta--inverse:active,
+.c-link-cta--inverse:hover {
+    color: #fff;
+}
+
+.c-link-cta--inverse::after,
+.c-link-cta--inverse:hover::after {
+    background-color: #fff;
+}
 
 /*------------------------------------*\
   #UTILITIES
@@ -1029,9 +1085,6 @@ a:focus {
     }
 }
 
-.u-pt-clear {
-    padding-top: 0 !important;
-}
 
 /*------------------------------------*\
   #MEDIA
